@@ -7,6 +7,8 @@ This is the product catalog api of the shopping website. The api uses the follow
 - Python
 - Flask
 - Postgres Database (Docker Container)
+- Kubernetes/Minikube
+- Istio
 
 The Api is used to retrieve product list by category and product details by sku
 
@@ -37,36 +39,20 @@ After the build completes, we can run the container:
 docker run -d -p 5000:5000 shop-catalog-api
 ```
 
-### Install Kubernetes / Minikube
+### Deploy to minikube
+#### Install Minikube
 Installing minikube - https://kubernetes.io/docs/tasks/tools/install-minikube/
 
 #### Install VirtualBox
 https://download.virtualbox.org/virtualbox/6.1.12/VirtualBox-6.1.12-139181-OSX.dmg
 
-#### Install Minikube
-Check if virtualization is supported
-```shell script
-sysctl -a | grep -E --color 'machdep.cpu.features|VMX'
-```
+#### Start minikube using virtualbox
 
-Install minikube
-```shell script
-brew install minikube
-```
-
-Start minikube using virtualbox
 https://minikube.sigs.k8s.io/docs/drivers/virtualbox/
 
 ```shell script
 minikube start --driver=virtualbox
 ```
 
-Minikube IP
-```shell script
-minikube ip
-```
-
-### Deploy to minikube
-
-
-### Configure Istio
+#### Install and configure Istio
+https://istio.io/latest/docs/setup/getting-started/
