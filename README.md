@@ -3,7 +3,7 @@ A fictional online shop product catalog api
 
 ## What is this?
 
-This is a the product catalog api of the shopping website. The api uses the following technologies
+This is the product catalog api of the shopping website. The api uses the following technologies
 - Python
 - Flask
 - Postgres Database (Docker Container)
@@ -24,26 +24,15 @@ GET /products/{sku_id}/details
 
 ## How is this deployed?
 
-The project uses terraform to deploy the resources and depencencies in AWS.
+### Build the image
 
-Install terraform in your local machine or build server using terraform cli https://www.terraform.io/downloads.html
-
-Terraform uses the aws provider to interact with aws services. More details on the aws provider are available at https://www.terraform.io/docs/providers/aws/index.html
-
-Note: Add ZoneId in terraform/*.tfvars
-
-### IAC (Terraform)
-
-DEVELOPMENT
-```
-terraform init -backend-config dev.tfbackend
-terraform plan -var-file dev.tfvars
-terraform apply -var-file dev.tfvars
+Now that we have a Dockerfile, let’s verify it builds correctly:
+```shell script
+docker build -t shop-catalog-api:latest .
 ```
 
-PRODUCTION
-```
-terraform init -backend-config prod.tfbackend
-terraform plan -var-file prod.tfvars
-terraform apply -var-file prod.tfvars
+### Run the container
+After the build completes, we can run the container:
+```shell script
+docker run -d -p 5000:5000 shop-catalog-api
 ```

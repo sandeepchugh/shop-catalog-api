@@ -1,0 +1,1 @@
+docker build -t shop-catalog-api:latest .
