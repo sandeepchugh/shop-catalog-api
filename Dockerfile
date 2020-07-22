@@ -1,5 +1,7 @@
 FROM python:slim
 
+MAINTAINER Sandeep Chugh
+
 # COPY requirements and run pip install before
 # copying the source code to leverge docker cache
 COPY ./requirements.txt /app/requirements.txt
