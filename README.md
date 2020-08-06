@@ -16,12 +16,37 @@ The Api is used to retrieve product list by category and product details by sku
 
 Get Products By Category
 ```
-GET /products/{category_name}
+GET /api/v1/products/categories/{category_name}
 ```
 
-Get Product Details By Sku
+Get Product Details By Id
 ```
-GET /products/{sku_id}/details
+GET /api/v1/products/{product_id}
+```
+
+## How is this run in a development environment?
+The api is build using flask
+
+```shell script
+# set the flask app
+export FLASK_APP=src/app.py
+
+# run the dev server
+python manage.py run
+
+# call the api
+curl  http://127.0.0.1:5000/api/v1/products/categories/test1
+# response is [{"name": "my test product", "category": "test1"}]
+```
+
+or run using docker compose
+```shell script
+docker-compose build
+docker-compose up -d
+```
+and to shut down 
+```shell script
+docker-compose down 
 ```
 
 ## How is this deployed?
