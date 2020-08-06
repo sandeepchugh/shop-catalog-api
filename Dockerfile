@@ -8,8 +8,13 @@ COPY ./requirements.txt /app/requirements.txt
 
 WORKDIR /app
 
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
 RUN pip install -r requirements.txt
 
+# Copy project code
 COPY ./src /app
 
 CMD ["python", "app.py"]

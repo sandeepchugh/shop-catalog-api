@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask
+from flask import Flask, jsonify
 from src.config import ConfigurationSettings
 from src.product_handler import ProductHandler
 
@@ -18,7 +18,7 @@ def get_all_products(category_name):
     """
     products = product_handler.get_products_by_category(category_name)
     # TODO: add exception handling
-    return json.dumps(products)
+    return jsonify(products)
 
 
 @app.route("/api/v1/products/<product_id>", methods=['GET'])
