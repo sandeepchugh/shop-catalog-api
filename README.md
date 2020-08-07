@@ -1,5 +1,6 @@
 # Shop - Catalog Api
 A fictional online shop product catalog api
+https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/
 
 ## What is this?
 
@@ -34,7 +35,7 @@ export FLASK_APP=src/app.py
 # run the dev server
 python manage.py run
 
-# call the api
+# call the web
 curl  http://127.0.0.1:5000/api/v1/products/categories/test1
 # response is [{"name": "my test product", "category": "test1"}]
 ```
@@ -52,16 +53,10 @@ docker-compose down
 ## How is this deployed?
 
 ### Build the image
-
-Now that we have a Dockerfile, let’s verify it builds correctly:
 ```shell script
-docker build -t shop-catalog-api:latest .
-```
-
-### Run the container
-After the build completes, we can run the container:
-```shell script
-docker run -d -p 5000:5000 shop-catalog-api
+# Docker file is in web folder so use context
+# as ./web instead of .
+docker build -t shop-catalog-api ./web 
 ```
 
 ### Deploy to minikube
