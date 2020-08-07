@@ -29,6 +29,8 @@ GET /api/v1/products/{product_id}
 The api is build using flask
 
 ```shell script
+cd web
+
 # set the flask app
 export FLASK_APP=src/app.py
 

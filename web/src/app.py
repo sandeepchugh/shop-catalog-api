@@ -3,7 +3,6 @@ import json
 from flask import Flask, jsonify
 
 app = Flask(__name__)
-app.config.from_object("src.config.Config")
 
 
 @app.route("/", methods=['GET'])
@@ -25,3 +24,6 @@ def get_all_products():
 #     # TODO: add exception handling
 #     return product
 
+
+if __name__=="__main__":
+    app.run(host="0.0.0.0")
