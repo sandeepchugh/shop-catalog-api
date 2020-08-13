@@ -6,6 +6,11 @@ app = Flask(__name__)
 
 
 @app.route("/", methods=['GET'])
+def get_available_apis():
+    return "<a href='/api/v1/catalog/products'>Products</a>"
+
+
+@app.route("/api/v1/catalog/products", methods=['GET'])
 def get_all_products():
     """
     Gets all products

@@ -14,15 +14,15 @@ This is the product catalog api of the shopping website. The api uses the follow
 The Api is used to retrieve product list by category and product details by sku
 
 ## How does this work?
+Get all products in catalog
+```
+GET /api/v1/catalog/products
+```
 
-Get Products By Category
-```
-GET /api/v1/products/categories/{category_name}
-```
 
 Get Product Details By Id
 ```
-GET /api/v1/products/{product_id}
+GET /api/v1/catalog/products/{product_id}
 ```
 
 ## How is this run in a development environment?
@@ -38,8 +38,8 @@ export FLASK_APP=src/app.py
 python manage.py run
 
 # call the web
-curl  http://127.0.0.1:5000/api/v1/products/categories/test1
-# response is [{"name": "my test product", "category": "test1"}]
+curl  http://127.0.0.1:5000/api/v1/catalog/products
+# response is collection of products
 ```
 
 or run using docker compose
