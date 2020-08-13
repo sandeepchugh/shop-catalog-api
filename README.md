@@ -1,6 +1,5 @@
 # Shop - Catalog Api
 A fictional online shop product catalog api
-https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/
 
 ## What is this?
 
@@ -78,3 +77,7 @@ minikube start --driver=virtualbox
 
 #### Install and configure Istio
 https://istio.io/latest/docs/setup/getting-started/
+
+
+## References
+https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/
