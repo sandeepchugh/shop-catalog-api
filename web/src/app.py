@@ -18,16 +18,15 @@ def get_all_products():
     """
     return jsonify(hello="world")
 
-#
-# @app.route("/web/v1/products/<product_id>", methods=['GET'])
-# def get_product_by_id(product_id):
-#     """
-#     Gets all products
-#     :return:
-#     """
-#     product = product_handler.get_product_by_id(product_id)
-#     # TODO: add exception handling
-#     return product
+
+@app.route("/api/v1/catalog/products/<product_id>", methods=['GET'])
+def get_product_by_id(product_id):
+    """
+    Gets all products
+    :return:
+    """
+    product = {"name":"test_product"}
+    return product
 
 
 if __name__=="__main__":
