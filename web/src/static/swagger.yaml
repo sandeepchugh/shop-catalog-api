@@ -1,0 +1,79 @@
+swagger: "2.0"
+info:
+  description: "This is a simple demo api for a shopping catalog"
+  version: "0.1.0"
+  title: "Shop Catalog Api"
+  contact:
+    email: "contact@shopcatalogapi.com"
+  license:
+    name: "MIT"
+    url: "https://opensource.org/licenses/MIT"
+host: "localhost:5000"
+basePath: "/v1"
+tags:
+- name: "products"
+  description: "All products in catalog"
+  externalDocs:
+    description: "Get all products"
+    url: "http://localhost:5000/v1/catalog/products"
+schemes:
+- "https"
+- "http"
+paths:
+  /catalog/products:
+    get:
+      tags:
+      - "products"
+      summary: "Gets all products in catalog"
+      description: ""
+      operationId: "getProducts"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "api_key"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Product"
+        "400":
+          description: "Invalid input"
+      security:
+      - products_auth:
+        - "get:products"
+      - api_key: []
+securityDefinitions:
+  products_auth:
+    type: "oauth2"
+    authorizationUrl: "http://localhost:5000/oauth/dialog"
+    flow: "implicit"
+    scopes:
+      get:products: "gets all products in catalog"
+  api_key:
+    type: "apiKey"
+    name: "api_key"
+    in: "header"
+definitions:
+  Product:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      productId:
+        type: "string"
+      productName:
+        type: "string"
+        description: "Product Name"
+    xml:
+      name: "Product"
+externalDocs:
+  description: "Find out more about product api"
+  url: "https://github.com/sandeepchugh/shop-catalog-api/blob/master/README.md"
