@@ -81,3 +81,6 @@ https://istio.io/latest/docs/setup/getting-started/
 
 ## References
 https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/
+https://dredd.org/en/latest/
+https://docs.traefik.io
+https://docs.traefik.io/user-guides/docker-compose/acme-tls/
